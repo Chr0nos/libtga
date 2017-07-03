@@ -61,7 +61,7 @@ static unsigned int *tga_px3(unsigned char *pixels, const t_tga *specs)
 ** set to 0 and NULL will be returned
 */
 
-unsigned int		*load_tga(const char *filepath, t_tga *specs)
+unsigned int		*tga_load(const char *filepath, t_tga *specs)
 {
 	size_t			file_size;
 	size_t			pixels_size;
@@ -96,13 +96,13 @@ unsigned int		*load_tga(const char *filepath, t_tga *specs)
 ** return the id of the opengl texture, 0 in case of error
 */
 
-GLuint				load_ogl_tga(const char *filepath)
+GLuint				tga_load_ogl(const char *filepath)
 {
 	t_tga				header;
 	GLuint				id;
 	unsigned int		*pixels;
 
-	if (!(pixels = load_tga(filepath, &header)))
+	if (!(pixels = tga_load(filepath, &header)))
 		return (0);
 	glGenTextures(1, &id);
 	glBindTexture(GL_TEXTURE_2D, id);
