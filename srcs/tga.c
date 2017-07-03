@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 21:41:43 by snicolet          #+#    #+#             */
-/*   Updated: 2017/07/03 01:31:27 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/07/04 01:00:30 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "tga.h"
 #include <fcntl.h>
 #include <stdlib.h>
-#include <GL/glew.h>
 
 static void			*load_tga_error(const char *error, void *file_content)
 {
@@ -88,26 +87,4 @@ unsigned int		*tga_load(const char *filepath, t_tga *specs)
 		return (pixels_to_rgba(pixels, specs->height * specs->width));
 	}
 	return (load_tga_error("failed to get pixels\n", file_content));
-}
-
-/*
-** load fhe filepath tga file into the graphic card (must have a valid opengl
-** context)
-** return the id of the opengl texture, 0 in case of error
-*/
-
-GLuint				tga_load_ogl(const char *filepath)
-{
-	t_tga				header;
-	GLuint				id;
-	unsigned int		*pixels;
-
-	if (!(pixels = tga_load(filepath, &header)))
-		return (0);
-	glGenTextures(1, &id);
-	glBindTexture(GL_TEXTURE_2D, id);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, header.width, header.height, 0,
-			GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-	free(pixels);
-	return (id);
 }

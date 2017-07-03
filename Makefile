@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/17 10:20:32 by snicolet          #+#    #+#              #
-#*   Updated: 2017/06/07 19:56:07 by snicolet         ###   ########.fr       *#
+#*   Updated: 2017/07/04 01:00:54 by snicolet         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBSO=libtga.so
 NAME=libtga.a
 INC=-Iincludes -I../libft/ -I /usr/local/include/
 
-OBJ=tga.o tga_display.o tga_save.o
+OBJ=tga.o tga_display.o tga_save.o tga_load_ogl.o
 ################################################################################
 ##                                                                            ##
 ##                   COMPILATION RULES : DONT TOUCH: IT'S MAGIC               ##
@@ -59,7 +59,6 @@ $(NAME): $(ALLDIR) $(ALLOBJ)
 	$(RANLIB) $(NAME)
 
 $(OBJBUILDDIR)/%.o: %.c
-	@echo compiling $@ --- $<
 	$(COMPILE) -c $< -o $@ $(INC)
 
 #windows dll cross compill rule
