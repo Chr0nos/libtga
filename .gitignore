@@ -1,0 +1,4 @@
+*.swp
+*.o
+libtga.a
+libtga.so
