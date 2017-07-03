@@ -62,7 +62,7 @@ typedef struct					s_tga
 
 unsigned int					*load_tga(const char *filepath, t_tga *specs);
 GLuint							load_ogl_tga(const char *filepath);
-int								save_tga(const char *filepath,
+int								tga_save(const char *filepath,
 		const t_tga *specs, const unsigned int *pixels);
 void							tga_display(const t_tga *specs);
 

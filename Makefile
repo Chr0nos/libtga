@@ -25,7 +25,7 @@ LIBSO=libtga.so
 NAME=libtga.a
 INC=-Iincludes -I../libft/ -I /usr/local/include/
 
-OBJ=tga.o tga_display.o
+OBJ=tga.o tga_display.o tga_save.o
 ################################################################################
 ##                                                                            ##
 ##                   COMPILATION RULES : DONT TOUCH: IT'S MAGIC               ##
