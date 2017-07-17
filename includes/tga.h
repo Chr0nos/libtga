@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 18:18:32 by snicolet          #+#    #+#             */
-/*   Updated: 2017/06/09 00:34:45 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/07/14 21:33:04 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # include <GL/glew.h>
 # define TGA_H
 # define TGA_TYPE_TC_RAW		2
+# define TGA_BIT_RLE			(1 << 3)
 
 /*
 ** from ABGR to RGBA
@@ -63,6 +64,8 @@ typedef struct					s_tga
 unsigned int					*tga_load(const char *filepath, t_tga *specs);
 GLuint							tga_load_ogl(const char *filepath);
 int								tga_save(const char *filepath,
+		const t_tga *specs, const unsigned int *pixels);
+int								tga_save_rle(const char *filepath,
 		const t_tga *specs, const unsigned int *pixels);
 void							tga_display(const t_tga *specs);
 

@@ -6,13 +6,13 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/17 10:20:32 by snicolet          #+#    #+#              #
-#*   Updated: 2017/07/04 01:00:54 by snicolet         ###   ########.fr       *#
+#*   Updated: 2017/07/04 01:05:01 by snicolet         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 EXTRA_FLAGS=-pipe -Ofast
 FLAGS=-Wall -Werror -Wextra -Wno-unused-result -Wno-reserved-id-macro
-#CC=clang
+CC=clang
 ifeq ($(CC),clang)
 	EXTRA_FLAGS+=-Weverything
 else
