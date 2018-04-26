@@ -6,14 +6,14 @@
 /*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 18:18:32 by snicolet          #+#    #+#             */
-/*   Updated: 2017/06/09 00:34:45 by snicolet         ###   ########.fr       */
+/*   Updated: 2018/04/26 17:34:29 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TGA_H
-# include <GL/glew.h>
 # define TGA_H
 # define TGA_TYPE_TC_RAW		2
+# include <GL/glew.h>
 
 /*
 ** from ABGR to RGBA
@@ -37,7 +37,7 @@
 # define TGA_SA(x)				((x & 0x000000ff) << 24)
 # define TGA_S(x)				(TGA_SR(x) | TGA_SG(x) | TGA_SB(x) | TGA_SA(x))
 
-#pragma pack(push, 1)
+# pragma pack(push, 1)
 
 typedef struct					s_tga
 {
@@ -56,9 +56,9 @@ typedef struct					s_tga
 	char						drop[3];
 }								t_tga;
 
-#pragma pack(pop)
+# pragma pack(pop)
 
-#define TGA_SIZE				sizeof(t_tga)
+# define TGA_SIZE				sizeof(t_tga)
 
 unsigned int					*tga_load(const char *filepath, t_tga *specs);
 GLuint							tga_load_ogl(const char *filepath);
