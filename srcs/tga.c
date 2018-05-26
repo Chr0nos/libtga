@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 21:41:43 by snicolet          #+#    #+#             */
-/*   Updated: 2018/05/04 18:56:45 by snicolet         ###   ########.fr       */
+/*   Updated: 2018/04/26 17:34:53 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static unsigned int	*pixels_to_rgba(unsigned int *pixels, size_t n)
 	return (pixels);
 }
 
-static unsigned int *tga_px3(unsigned char *pixels, const t_tga *specs)
+static unsigned int	*tga_px3(unsigned char *pixels, const t_tga *specs)
 {
 	const size_t		pixels_total = specs->width * specs->height;
 	const size_t		size = pixels_total * 3;
