@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 21:41:43 by snicolet          #+#    #+#             */
-/*   Updated: 2017/07/04 01:00:30 by snicolet         ###   ########.fr       */
+/*   Updated: 2018/05/04 18:56:45 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,10 @@ unsigned int		*tga_load(const char *filepath, t_tga *specs)
 	if ((header->type != TGA_TYPE_TC_RAW) || (header->depth < 24))
 		return (load_tga_error("unsupported file format\n", file_content));
 	pixels_size = header->width * header->height * (header->depth >> 3) + 1;
+	ft_printf("%lu - %lu\n", pixels_size, file_size - TGA_SIZE);
 	if ((pixels = malloc(pixels_size)))
 	{
-		ft_memcpy(pixels, &file_content[TGA_SIZE], file_size - TGA_SIZE);
+		ft_memcpy(pixels, &file_content[TGA_SIZE], pixels_size);
 		*specs = *header;
 		free(file_content);
 		if (specs->depth == 24)

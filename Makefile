@@ -6,11 +6,11 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/17 10:20:32 by snicolet          #+#    #+#              #
-#*   Updated: 2017/07/04 01:00:54 by snicolet         ###   ########.fr       *#
+#*   Updated: 2018/05/04 18:51:59 by snicolet         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-EXTRA_FLAGS=-pipe -Ofast
+EXTRA_FLAGS=-pipe -Ofast -g3
 FLAGS=-Wall -Werror -Wextra -Wno-unused-result -Wno-reserved-id-macro
 #CC=clang
 ifeq ($(CC),clang)
@@ -23,7 +23,7 @@ RANLIB=ranlib
 AR=ar
 LIBSO=libtga.so
 NAME=libtga.a
-INC=-Iincludes -I../libft/ -I /usr/local/include/
+INC=-Iincludes -I../libft/include -I /usr/local/include/ -I$(HOME)/.brew/include
 
 OBJ=tga.o tga_display.o tga_save.o tga_load_ogl.o
 ################################################################################
