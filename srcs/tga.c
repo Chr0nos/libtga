@@ -77,7 +77,6 @@ unsigned int		*tga_load(const char *filepath, t_tga *specs)
 	if ((header->type != TGA_TYPE_TC_RAW) || (header->depth < 24))
 		return (load_tga_error("unsupported file format\n", file_content));
 	pixels_size = header->width * header->height * (header->depth >> 3) + 1;
-	ft_printf("%lu - %lu\n", pixels_size, file_size - TGA_SIZE);
 	if ((pixels = malloc(pixels_size)))
 	{
 		ft_memcpy(pixels, &file_content[TGA_SIZE], pixels_size);
